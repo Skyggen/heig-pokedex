@@ -31,6 +31,27 @@ class Dresseurs
         return $tabDresseurs;
 
     }
+    public static function isUserExist($pseudo){
+        $db = new db();
+        return !empty($db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj());
+    }
+    public static function getDresseursPasswordHash($pseudo){
+        $db = new db();
+        $result = $db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj();
+        if(!empty($result)){
+            return $result[0]->password;
+
+        }else{return "";}
+    }
+
+    public static function getDresseurId($pseudo){
+        $db = new db();
+        $result = $db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj();
+        if(!empty($result)){
+            return (int)$result[0]->id;
+
+        }else{return "";}
+    }
 
     private static function arrayToObject($tbDresseur){
 

@@ -4,13 +4,13 @@
     <div class="hero-body">
         <div class="container">
             <article class="card is-rounded">
-                <form class="card-content" method="post" action="../../registration.php">
+                <form class="card-content" method="post" action="registration.php">
                     <h1 class="title">
                         Inscription
                     </h1>
                     <div class="field">
                         <p class="control has-icons-left">
-                            <input class="input" type="text" placeholder="Username" name="username" required>
+                            <input class="input" type="text" placeholder="Pseudo" name="username" required>
                             <span class="icon is-small is-left">
                           <i class="fas fa-user"></i>
                         </span>
@@ -25,11 +25,8 @@
                         </p>
                     </div>
                     <div class="field">
-                        <div class="g-recaptcha" data-sitekey="6Lf3qkQUAAAAAMDoTgaEzCPdQFWoRSgKxFIg_dYh"></div>
-                    </div>
-                    <div class="field">
                         <p class="control">
-                            <input type="submit" class="button is-primary is-medium is-fullwidth" value="S'inscrire !">
+                            <input type="submit" class="button is-danger is-primary is-medium is-fullwidth" value="S'inscrire !">
                         </p>
                     </div>
                 </form>

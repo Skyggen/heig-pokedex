@@ -7,6 +7,8 @@
     <title>Pok game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
+
+
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -30,7 +32,7 @@
                 <div class="field is-grouped">
                     {if !isset($smarty.session.username)}
                         <p class="control">
-                            <a class="button is-primary" href="registration.php">
+                            <a class="button is-danger is-primary" href="registration.php">
                                 <span class="icon"><i class="fas fa-user-plus"></i> </span>
                                 <span>S'inscrire</span>
                             </a>

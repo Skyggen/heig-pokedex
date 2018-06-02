@@ -11,14 +11,9 @@ require ('config.php');
 
 $clogin = new LoginCtrl();
 
-if (!isset($_POST['username']) || !isset($_POST['password']) || empty($_POST['username']) || empty($_POST['password']))
+if (!isset($_POST['username']) || !isset($_POST['password']) || empty($_POST['pseudo']) || empty($_POST['password']))
     $clogin->login();
 else {
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . reCAPTCHAKEY . "&response=" . $_POST['g-recaptcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-    $obj = json_decode($response);
+        $clogin->checkLogin($_POST['pseudo'], $_POST['password']);
 
-    if ($obj->success == true)
-        $clogin->checkLogin($_POST['username'], $_POST['password']);
-    else
-        $clogin->login();
 }
