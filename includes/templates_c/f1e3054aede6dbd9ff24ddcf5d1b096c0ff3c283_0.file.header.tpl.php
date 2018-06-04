@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-06-01 13:21:08
+/* Smarty version 3.1.32, created on 2018-06-04 08:57:00
   from 'C:\MAMP\htdocs\ProgServ\coursphp\progcs\pokedex\includes\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b1148449fab95_05170048',
+  'unifunc' => 'content_5b14fedc4862b1_55441776',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1e3054aede6dbd9ff24ddcf5d1b096c0ff3c283' => 
     array (
       0 => 'C:\\MAMP\\htdocs\\ProgServ\\coursphp\\progcs\\pokedex\\includes\\templates\\header.tpl',
-      1 => 1527859265,
+      1 => 1528102616,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b1148449fab95_05170048 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b14fedc4862b1_55441776 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -30,15 +30,13 @@ function content_5b1148449fab95_05170048 (Smarty_Internal_Template $_smarty_tpl)
     <title>Pok game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-
-
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="index.php">
-            <img src="./assets/img/1.png" alt=""
-                 width="40" height="40">
+            <img src="./assets/img/logo.png" alt=""
+                 width="70" height="100%">
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
             <span></span>

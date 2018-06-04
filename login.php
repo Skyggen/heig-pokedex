@@ -11,7 +11,7 @@ require ('config.php');
 
 $clogin = new LoginCtrl();
 
-if (!isset($_POST['username']) || !isset($_POST['password']) || empty($_POST['pseudo']) || empty($_POST['password']))
+if (!isset($_POST['pseudo']) || !isset($_POST['password']) || empty($_POST['pseudo']) || empty($_POST['password']))
     $clogin->login();
 else {
         $clogin->checkLogin($_POST['pseudo'], $_POST['password']);

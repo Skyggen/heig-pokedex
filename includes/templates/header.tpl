@@ -7,15 +7,13 @@
     <title>Pok game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-
-
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="index.php">
-            <img src="./assets/img/1.png" alt=""
-                 width="40" height="40">
+            <img src="./assets/img/logo.png" alt=""
+                 width="70" height="100%">
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
             <span></span>

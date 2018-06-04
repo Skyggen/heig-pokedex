@@ -10,25 +10,26 @@ class LoginCtrl extends Ctrl {
    public  function login () {
 
        $this->getTPL()->display('login.tpl');
+       var_dump($_SESSION);
    }
-    public function checkLogin($user, $pswd) {
+    public function checkLogin($pseudo, $pswd) {
         $loginOk = true;
 
-        if (empty($user) || empty($pswd))
+        if (empty($pseudo) || empty($pswd))
             $loginOk = false;
 
-        if (!(Dresseurs::isUserExist($user) && password_verify($pswd, Dresseurs::getDresseursPasswordHash($user))))
+        if (!(Dresseurs::isUserExist($pseudo) && password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo))))
             $loginOk = false;
 
         if (!$loginOk)
             $this->getTPL()->display('login.tpl');
         else {
-            Session::set("pseudo", $user);
-
-            $this->getTPL()->assign("pseudo", $user);
+            Session::set("pseudo", $pseudo);
+            $_SESSION["Authenticated"] = true;
+            $this->getTPL()->assign("pseudo", $pseudo);
             $this->getTPL()->display('loginOk.tpl');
         }
-
+var_dump($_SESSION);
 
     }
 
@@ -56,14 +57,3 @@ class LoginCtrl extends Ctrl {
     }
 
 }
-
-
-
-//class LoginCtrl extends Ctrl {
- //   public function login () {
-  //      $this->getTPL()->display('login.tpl');
-  //  }
-  //  public function signup() {
-  //      $this->getTPL()->display('registration.tpl');
-  //  }
-//}

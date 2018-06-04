@@ -31,10 +31,17 @@ class Dresseurs
         return $tabDresseurs;
 
     }
+
+    private static function arrayToObject($tbDresseur){
+
+        return new Dresseurs($tbDresseur['no'],$tbDresseur['pseudo'],$tbDresseur['password']);
+    }
+
     public static function isUserExist($pseudo){
         $db = new db();
         return !empty($db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj());
     }
+
     public static function getDresseursPasswordHash($pseudo){
         $db = new db();
         $result = $db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj();
@@ -51,10 +58,5 @@ class Dresseurs
             return (int)$result[0]->id;
 
         }else{return "";}
-    }
-
-    private static function arrayToObject($tbDresseur){
-
-        return new Dresseurs($tbDresseur['no'],$tbDresseur['pseudo'],$tbDresseur['password']);
     }
 }
