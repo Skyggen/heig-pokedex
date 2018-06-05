@@ -8,21 +8,68 @@
 
 class Pokemon
 {
-    private $noPokemon, $nivPokemon, $sexe, $no_fichePokemon;
+    private $noPokemon, $nom, $description, $nivPokemon, $sexe, $noFichePokemon, $nomType;
 
-    public function __construct($noPokemon,$nom,$description,$type, $nivPokemon, $sexe, $no_fichePokemon)
+    public function __construct($noPokemon, $nom, $description, $nomType, $sexe, $nivPokemon, $noFichePokemon)
     {
         $this->noPokemon = $noPokemon;
+        $this->nom = $nom;
+        $this->description = $description;
         $this->nivPokemon = $nivPokemon;
         $this->sexe = $sexe;
-        $this->no_fichePokemon = $no_fichePokemon;
+        $this->noFichePokemon = $noFichePokemon;
+        $this->nomType = $nomType;
+
     }
 
-    public static function getAllPokemons(){
-        $pokemons = array();
-        // get data from db
-        // convert data to object array user
-        $pokemons[]= new Pokemon(1,23,"male",1);
-        return  $pokemons; //  va chercher tous les user dans la db
+    public static function getAllPokInf()
+    {
+        $db = new db(unserialize(TBCONF));
+        $SQL = "SELECT * FROM pokemon INNER JOIN fichepokemon where pokemon.noFichePok = fichepokemon.no ";
+        $param = array();
+        $brutResults = $db->selectQuery($SQL, $param);
+        $tabPok = array();
+        for ($i = 0; $i < count($brutResults); $i++) {
+            $tabPok[] = self::arrayToObject($brutResults[$i]);
+        }
+
+        return $tabPok;
+
     }
+ //   public static function getById($idPok) {
+   //     $db = new DB();
+    //    $result = $db->query("SELECT * from pokemon
+     //       WHERE pokemon.no=$idPok;")->execute()->fetch_obj();
+
+
+       // return new Pokemon();
+    //}
+    public static function getPokCapFromDresseur()
+    {
+        $db = new db(unserialize(TBCONF));
+        $SQL = "SELECT DISTINCT * FROM pokemon INNER JOIN fichepokemon on pokemon.noFichePok = fichepokemon.no 
+                inner join types_has_fichepokemon on fichepokemon.no = types_has_fichepokemon.noFichePokemon
+                inner join types on types.no = types_has_fichepokemon.noType
+                inner join capture on capture.nopokemon = pokemon.no 
+                inner join dresseurs on dresseurs.no = capture.noDresseurs
+                where dresseurs.no = 1  ";
+        $param = array();
+        $brutResults = $db->selectQuery($SQL, $param);
+        $tabPok = array();
+        for ($i = 0; $i < count($brutResults); $i++) {
+            $tabPok[] = self::arrayToObject($brutResults[$i]);
+        }
+
+        return $tabPok;
+
+    }
+
+// private static function arrayToObject($tabFichePok){
+    private static function arrayToObject($tabPok)
+    {
+        return new Pokemon($tabPok['no'], $tabPok['nom'], $tabPok['nivPok'], $tabPok['description'], $tabPok['nomType'], $tabPok['sexe'], $tabPok['noFichePok']);
+        //return new Dresseurs($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
+    }
+
+
 }

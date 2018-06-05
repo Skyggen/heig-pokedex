@@ -11,6 +11,6 @@
  //   header("location: login.php");
 //}
 include "config.php";
-
+//$pok = Pokemon::getById($_GET['idPok']);
 $cGame = new GameCtrl();
-$cGame->displayPokedex();
+$cGame->displayPokedex($pok);
