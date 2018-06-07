@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-06-07 11:46:03
+/* Smarty version 3.1.32, created on 2018-06-07 14:08:13
   from 'C:\MAMP\htdocs\ProgServ\coursphp\progcs\pokedex\includes\templates\registration.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b191afb46fec2_58207395',
+  'unifunc' => 'content_5b193c4d58f528_07137095',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c0bcfd2d5d22cb6dbcd326556a46f1c8502c8c77' => 
     array (
       0 => 'C:\\MAMP\\htdocs\\ProgServ\\coursphp\\progcs\\pokedex\\includes\\templates\\registration.tpl',
-      1 => 1528371949,
+      1 => 1528380489,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5b191afb46fec2_58207395 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b193c4d58f528_07137095 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-echo '<script'; ?>
- src='https://www.google.com/recaptcha/api.js'><?php echo '</script'; ?>
->
+?>
 <section class="hero is-alt is-fullheight">
     <div class="hero-body">
         <div class="container">

@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-<script src='https://www.google.com/recaptcha/api.js'></script>
 <section class="hero is-alt is-fullheight">
     <div class="hero-body">
         <div class="container">

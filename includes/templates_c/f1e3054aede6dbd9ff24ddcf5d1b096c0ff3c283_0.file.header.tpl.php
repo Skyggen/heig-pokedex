@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-06-04 08:57:00
+/* Smarty version 3.1.32, created on 2018-06-07 13:42:31
   from 'C:\MAMP\htdocs\ProgServ\coursphp\progcs\pokedex\includes\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b14fedc4862b1_55441776',
+  'unifunc' => 'content_5b193647b53a36_27050941',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1e3054aede6dbd9ff24ddcf5d1b096c0ff3c283' => 
     array (
       0 => 'C:\\MAMP\\htdocs\\ProgServ\\coursphp\\progcs\\pokedex\\includes\\templates\\header.tpl',
-      1 => 1528102616,
+      1 => 1528378946,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b14fedc4862b1_55441776 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b193647b53a36_27050941 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@ function content_5b14fedc4862b1_55441776 (Smarty_Internal_Template $_smarty_tpl)
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="field is-grouped">
-                    <?php if (!isset($_SESSION['username'])) {?>
+                    <?php if (!isset($_SESSION['pseudo'])) {?>
                         <p class="control">
                             <a class="button is-danger is-primary" href="registration.php">
                                 <span class="icon"><i class="fas fa-user-plus"></i> </span>
@@ -68,7 +68,7 @@ function content_5b14fedc4862b1_55441776 (Smarty_Internal_Template $_smarty_tpl)
                         <p class="control">
                             <a class="button" href="#">
                                 <span class="icon"><i class="fas fa-cog"></i></span>
-                                <span><?php echo $_SESSION['username'];?>
+                                <span><?php echo $_SESSION['pseudo'];?>
 </span>
                             </a>
                         </p>

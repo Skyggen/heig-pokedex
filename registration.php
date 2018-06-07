@@ -14,5 +14,5 @@ if (!isset($_POST['pseudo']) || !isset($_POST['password']) || empty($_POST['pseu
     $clogin->signup();
 else {
         $clogin->checkAndSaveRegistration($_POST['pseudo'], $_POST['password']);
-        var_dump($clogin);
+       // var_dump($clogin);
 }

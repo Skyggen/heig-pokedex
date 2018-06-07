@@ -2,7 +2,7 @@
 /**
  * Help to manage the $_SESSION global php var
  *
- * @author Arthur Verdon
+ * @author Adrien Ciampone
  */
 class Session {
     /**
