@@ -10,7 +10,7 @@
                     </h1>
                     <div class="field">
                         <p class="control has-icons-left">
-                            <input class="input" type="text" placeholder="Username" name="username">
+                            <input class="input" type="text" placeholder="Username" name="pseudo">
                             <span class="icon is-small is-left">
                           <i class="fas fa-user"></i>
                         </span>

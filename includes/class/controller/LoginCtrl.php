@@ -11,19 +11,29 @@ class LoginCtrl extends Ctrl {
 
        $this->getTPL()->display('login.tpl');
        var_dump($_SESSION);
+       var_dump ("passe par login");
+
    }
     public function checkLogin($pseudo, $pswd) {
+
         $loginOk = true;
 
         if (empty($pseudo) || empty($pswd))
             $loginOk = false;
 
-        if (!(Dresseurs::isUserExist($pseudo) && password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo))))
+
+        if (!(Dresseurs::isUserExist($pseudo) ))
+        $loginOk = false;
+
+
+        if(!(password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo))))
+            var_dump("verif".$pswd);
             $loginOk = false;
 
         if (!$loginOk)
             $this->getTPL()->display('login.tpl');
         else {
+            var_dump("okok");
             Session::set("pseudo", $pseudo);
             $_SESSION["Authenticated"] = true;
             $this->getTPL()->assign("pseudo", $pseudo);
@@ -38,7 +48,7 @@ var_dump($_SESSION);
     }
 
     public function checkAndSaveRegistration($user, $pswd) {
-        $db = new db();
+        $db = new  db(unserialize(TBCONF));
         try {
             $db->pdo->beginTransaction();
             $q = $db->pdo->prepare("INSERT INTO dresseurs (pseudo, password) VALUES (:pseudo,:password)");

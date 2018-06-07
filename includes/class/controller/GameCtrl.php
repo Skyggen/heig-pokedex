@@ -9,7 +9,7 @@
 
 class GameCtrl extends Ctrl
 {
-    public  function displayPokedex($pok)
+    public  function displayPokedex()
     {
 
 
@@ -20,8 +20,8 @@ class GameCtrl extends Ctrl
        // var_dump(Pokemon::getAllPokInf());
 
         var_dump(Pokemon::getPokCapFromDresseur());
-
-        $this->getTPL()->assign("tabPok", $pok );
+          //  $this::getPokCapFromDresseur("tabPok", $tabPok);
+      //  $this->getTPL()->getPokCapFromDresseur("tabPok", $pok );
 
        // $this->getTPL()->assign('pokemons',$data);
         $this->getTPL()->display('pokedex.tpl');
