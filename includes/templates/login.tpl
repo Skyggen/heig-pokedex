@@ -26,7 +26,8 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <input type="submit" class="button is-danger is-primary is-medium is-fullwidth" value="Login">
+                            <input type="submit" class="button is-danger is-primary is-medium is-fullwidth"
+                                   value="Login">
                         </p>
                     </div>
                 </form>

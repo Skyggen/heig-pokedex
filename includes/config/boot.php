@@ -10,7 +10,7 @@
 //require('C:/MAMP/bin/php/php7.1.7/lib/Smarty/Smarty.class.php');
 //require (INCLUDESPATH."/class/db.php");
 
-require 'smarty/Smarty.class.php';
+require 'smarty3/Smarty.class.php';
 //require('C:/MAMP/bin/php/php7.1.7/lib/Smarty/Smarty.class.php');
 
 spl_autoload_register(function ($className) {

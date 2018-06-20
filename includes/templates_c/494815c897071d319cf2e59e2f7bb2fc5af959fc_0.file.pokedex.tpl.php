@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-06-20 12:37:06
+/* Smarty version 3.1.32, created on 2018-06-20 15:03:17
   from 'C:\MAMP\htdocs\ProgServ\coursphp\progcs\pokedex\includes\templates\pokedex.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b2a4a72a89101_95981801',
+  'unifunc' => 'content_5b2a6cb5cbfe83_93956617',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '494815c897071d319cf2e59e2f7bb2fc5af959fc' => 
     array (
       0 => 'C:\\MAMP\\htdocs\\ProgServ\\coursphp\\progcs\\pokedex\\includes\\templates\\pokedex.tpl',
-      1 => 1529498223,
+      1 => 1529506991,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5b2a4a72a89101_95981801 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b2a6cb5cbfe83_93956617 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 echo '<script'; ?>
  src='https://www.google.com/recaptcha/api.js'><?php echo '</script'; ?>
@@ -38,7 +38,7 @@ echo '<script'; ?>
                     </h1>
                 </div>
             </article>
-            <article class="card is-rounded">
+            <article class="card">
                 <form class="card-content">
                     <h1 class="title">
                         Pok Game
@@ -85,7 +85,7 @@ echo '<script'; ?>
                         Pokémon(s) capturé(s)
                     </h2>
 
-                    <table>
+                    <table class="table">
                         <tr>
                             <th>No</th>
                             <th>Nom</th>

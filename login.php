@@ -6,7 +6,7 @@
  * Time: 17:12
  */
 
-require ('config.php');
+require("config.php");
 //include CONTROLLERPATH."LoginCtrl.php";
 
 $clogin = new LoginCtrl();

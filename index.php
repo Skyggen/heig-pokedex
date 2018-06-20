@@ -6,7 +6,7 @@ if (!isset($_SESSION["Authenticated"]))
 }else
     header("location: game.php");
 
-require ('config.php');
+require("config.php");
 ?>
 
 //redirection sur login ou sur game

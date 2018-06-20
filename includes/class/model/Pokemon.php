@@ -36,14 +36,7 @@ class Pokemon
         return $tabPok;
 
     }
-    //   public static function getById($idPok) {
-    //     $db = new DB();
-    //    $result = $db->query("SELECT * from pokemon
-    //       WHERE pokemon.no=$idPok;")->execute()->fetch_obj();
 
-
-    // return new Pokemon();
-    //}
     public static function getPokCapFromDresseur($idDresseurs)
     {
         $db = new db(unserialize(TBCONF));
@@ -113,17 +106,15 @@ class Pokemon
         $db->insertQuery($SQL);
     }
 
-// private static function arrayToObject($tabFichePok){
     private static function arrayToObject($tabPok)
     {
-        if(!isset($tabPok['noFichePok']))
+        if (!isset($tabPok['noFichePok']))
             $tabPok['noFichePok'] = -1;
-        if(!isset($tabPok['nomType']))
+        if (!isset($tabPok['nomType']))
             $tabPok['nomType'] = isset($tabPok['types']) ? $tabPok['types'] : '';
 
 
         return new Pokemon($tabPok[0], $tabPok['nom'], $tabPok['description'], $tabPok['nomType'], $tabPok['sexe'], $tabPok['nivPok'], $tabPok['noFichePok']);
-        //return new Dresseurs($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
     }
 
 

@@ -5,6 +5,7 @@
     <meta http-equiv="Content-language" content="fr" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pok game</title>
+    <link rel="shortcut icon" href="./assets/img/favico.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
@@ -15,13 +16,9 @@
             <img src="./assets/img/logo.png" alt=""
                  width="70" height="100%">
         </a>
-        <div class="navbar-burger burger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+
     </div>
-    <div id="navMenu" class="navbar-menu">
+
         <div class="navbar-start">
             <a class="navbar-item" href="game.php">Game</a>
         </div>
@@ -58,5 +55,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </nav>

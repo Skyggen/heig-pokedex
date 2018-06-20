@@ -8,22 +8,23 @@
 
 class FichePokemon
 {
-    private  $no, $nom, $description;
+    private $no, $nom, $description;
 
-    public function __construct($no_fichePokemon,$nomPok,$descriptionPok)
+    public function __construct($no_fichePokemon, $nomPok, $descriptionPok)
     {
         $this->no = $no_fichePokemon;
         $this->nom = $nomPok;
         $this->description = $descriptionPok;
     }
 
-    public static function getAllFichePok(){
+    public static function getAllFichePok()
+    {
         $db = new db(unserialize(TBCONF));
         $SQL = "SELECT * FROM fichePokemon";
         $param = array();
-        $brutResults = $db->selectQuery($SQL,$param);
+        $brutResults = $db->selectQuery($SQL, $param);
         $tabFichePok = array();
-        for($i=0;$i<count($brutResults);$i++){
+        for ($i = 0; $i < count($brutResults); $i++) {
             $tabFichePok[] = self::arrayToObject($brutResults[$i]);
         }
 
@@ -31,20 +32,22 @@ class FichePokemon
 
     }
 
-    public static function countFichePokemon (){
+    public static function countFichePokemon()
+    {
         $db = new db(unserialize(TBCONF));
         $SQL = "SELECT MAX(fichepokemon.no) FROM fichepokemon ";
 
         $brutResults = $db->selectQuery($SQL, array());
 
         $max = $brutResults[0];
-       //var_dump($max [0]);
+        //var_dump($max [0]);
         return $max[0];
     }
 
 
-    private static function arrayToObject($tabFichePok){
+    private static function arrayToObject($tabFichePok)
+    {
 
-        return new FichePokemon($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
+        return new FichePokemon($tabFichePok['no'], $tabFichePok['nom'], $tabFichePok['description']);
     }
 }

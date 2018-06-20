@@ -5,7 +5,7 @@
             <article class="card is-rounded">
                 <div class="card-content">
                     <h1 class="title">
-                       Deconnection OK
+                        Deconnection OK
                     </h1>
                 </div>
             </article>

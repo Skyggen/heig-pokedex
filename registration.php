@@ -6,7 +6,7 @@
  * Time: 17:12
  */
 
-include "config.php";
+include ("config.php");
 
 $clogin = new LoginCtrl();
 

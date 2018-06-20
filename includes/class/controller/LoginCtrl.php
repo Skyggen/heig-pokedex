@@ -1,20 +1,17 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Adrien
  * Date: 30.05.2018
  * Time: 17:13
  */
-
-//include "Ctrl.php";
 class LoginCtrl extends Ctrl
 {
     public function login()
     {
-
         $this->getTPL()->display('login.tpl');
-       // var_dump($_SESSION);
-
+        // var_dump($_SESSION);
     }
 
     public function checkLogin($pseudo, $pswd)
@@ -25,25 +22,23 @@ class LoginCtrl extends Ctrl
             $loginOk = false;
 
 
-        if (!(Dresseurs::isUserExist($pseudo) )){
-          //  var_dump("pseudo existe" . $pswd.$pseudo);
+        if (!(Dresseurs::isUserExist($pseudo))) {
+            //  var_dump("pseudo existe" . $pswd.$pseudo);
             $loginOk = false;
 
         }
 
-        if (!(password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo)))){
-          //  var_dump("password" . $pswd.$pseudo);
+        if (!(password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo)))) {
+            //  var_dump("password" . $pswd.$pseudo);
             $loginOk = false;
 
         }
-
-
         if (!$loginOk) $this->getTPL()->display('login.tpl');
 
         else {
             Session::set("pseudo", $pseudo);
             $_SESSION["Authenticated"] = true;
-            $_SESSION["pseudo"]=$pseudo;
+            $_SESSION["pseudo"] = $pseudo;
             header('Location: game.php');
         }
         //var_dump($_SESSION);
@@ -73,7 +68,7 @@ class LoginCtrl extends Ctrl
 
 
             $db->pdo->commit();
-       $this->checkLogin($pseudo, $pswd);
+            $this->checkLogin($pseudo, $pswd);
         } catch (Exception $e) {
             $db->pdo->rollBack();
             $this->getTPL()->assign("error", $e->getMessage());

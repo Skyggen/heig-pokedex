@@ -9,22 +9,23 @@
 class Dresseurs
 
 {
-    private $no, $pseudo,$password;
+    private $no, $pseudo, $password;
 
-    public function __construct($no, $pseudo,$password)
+    public function __construct($no, $pseudo, $password)
     {
         $this->no = $no;
         $this->pseudo = $pseudo;
         $this->password = $password;
     }
 
-    public static function getAllDresseurs(){
+    public static function getAllDresseurs()
+    {
         $db = new db(unserialize(TBCONF));
         $SQL = "SELECT * FROM dresseurs";
         $param = array();
-        $brutResults = $db->selectQuery($SQL,$param);
+        $brutResults = $db->selectQuery($SQL, $param);
         $tabDresseurs = array();
-        for($i=0;$i<count($brutResults);$i++){
+        for ($i = 0; $i < count($brutResults); $i++) {
             $tabDresseurs[] = self::arrayToObject($brutResults[$i]);
         }
 
@@ -32,33 +33,41 @@ class Dresseurs
 
     }
 
-    private static function arrayToObject($tbDresseur){
+    private static function arrayToObject($tbDresseur)
+    {
 
-        return new Dresseurs($tbDresseur['no'],$tbDresseur['pseudo'],$tbDresseur['password']);
+        return new Dresseurs($tbDresseur['no'], $tbDresseur['pseudo'], $tbDresseur['password']);
     }
 
-    public static function isUserExist($pseudo){
+    public static function isUserExist($pseudo)
+    {
         $db = new  db(unserialize(TBCONF));
-        return !empty($db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo)));
+        return !empty($db->selectQuery("select * from dresseurs where pseudo=?", array($pseudo)));
     }
 
-    public static function getDresseursPasswordHash($pseudo){
+    public static function getDresseursPasswordHash($pseudo)
+    {
         $db = new  db(unserialize(TBCONF));;
-        $result = $db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo));
-        $dresseur=self::arrayToObject($result[0]);
+        $result = $db->selectQuery("select * from dresseurs where pseudo=?", array($pseudo));
+        $dresseur = self::arrayToObject($result[0]);
 
-        if(!empty($result)){
+        if (!empty($result)) {
             return $dresseur->password;
 
-        }else{return "";}
+        } else {
+            return "";
+        }
     }
 
-    public static function getDresseurId($pseudo){
+    public static function getDresseurId($pseudo)
+    {
         $db = new  db(unserialize(TBCONF));;
-        $result = $db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo));
-        if(!empty($result)){
+        $result = $db->selectQuery("select * from dresseurs where pseudo=?", array($pseudo));
+        if (!empty($result)) {
             return $result[0][0];
 
-        }else{return "";}
+        } else {
+            return "";
+        }
     }
 }
