@@ -10,9 +10,14 @@ include "config.php";
 
 $clogin = new LoginCtrl();
 
-if (!isset($_POST['pseudo']) || !isset($_POST['password']) || empty($_POST['pseudo']) || empty($_POST['password']))
+if (!isset($_POST['username']) || !isset($_POST['password']) || empty($_POST['username']) || empty($_POST['password']))
     $clogin->signup();
 else {
-        $clogin->checkAndSaveRegistration($_POST['pseudo'], $_POST['password']);
-       // var_dump($clogin);
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . reCAPTCHAKEY . "&response=" . $_POST['g-recaptcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+    $obj = json_decode($response);
+
+    if ($obj->success == true)
+        $clogin->checkAndSaveRegistration($_POST['username'], $_POST['password']);
+    else
+        $clogin->signup();
 }

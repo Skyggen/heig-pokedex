@@ -38,24 +38,22 @@ class Dresseurs
     }
 
     public static function isUserExist($pseudo){
-        $db = new  db(unserialize(TBCONF));
-        return !empty($db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo)));
+        $db = new db();
+        return !empty($db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj());
     }
 
     public static function getDresseursPasswordHash($pseudo){
-        $db = new  db(unserialize(TBCONF));;
-        $result = $db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo));
-        $dresseur=self::arrayToObject($result[0]);
-
+        $db = new db();
+        $result = $db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj();
         if(!empty($result)){
-            return $dresseur->password;
+            return $result[0]->password;
 
         }else{return "";}
     }
 
     public static function getDresseurId($pseudo){
-        $db = new  db(unserialize(TBCONF));;
-        $result = $db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo));
+        $db = new db();
+        $result = $db->query("select * from dresseurs where pseudo='$pseudo'")->execute()->fetch_obj();
         if(!empty($result)){
             return (int)$result[0]->id;
 

@@ -28,7 +28,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="field is-grouped">
-                    {if !isset($smarty.session.pseudo)}
+                    {if !isset($smarty.session.username)}
                         <p class="control">
                             <a class="button is-danger is-primary" href="registration.php">
                                 <span class="icon"><i class="fas fa-user-plus"></i> </span>
@@ -45,7 +45,7 @@
                         <p class="control">
                             <a class="button" href="#">
                                 <span class="icon"><i class="fas fa-cog"></i></span>
-                                <span>{$smarty.session.pseudo}</span>
+                                <span>{$smarty.session.username}</span>
                             </a>
                         </p>
                         <p class="control">

@@ -8,13 +8,14 @@
 
 class FichePokemon
 {
-    private  $no, $nom, $description;
+    private $noPokemon, $nivPokemon, $sexe, $no_fichePokemon;
 
-    public function __construct($no_fichePokemon,$nomPok,$descriptionPok)
+    public function __construct($noPokemon,$nom,$description,$type, $nivPokemon, $sexe, $no_fichePokemon)
     {
-        $this->no = $no_fichePokemon;
-        $this->nom = $nomPok;
-        $this->description = $descriptionPok;
+        $this->noPokemon = $noPokemon;
+        $this->nivPokemon = $nivPokemon;
+        $this->sexe = $sexe;
+        $this->no_fichePokemon = $no_fichePokemon;
     }
 
     public static function getAllFichePok(){
@@ -32,6 +33,6 @@ class FichePokemon
     }
     private static function arrayToObject($tabFichePok){
 
-        return new FichePokemon($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
+        return new Dresseurs($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
     }
 }

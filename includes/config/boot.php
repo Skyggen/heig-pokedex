@@ -35,4 +35,3 @@ spl_autoload_register(function ($className) {
  * START SESSION
  */
 Session::start_session();
-var_dump($_SESSION);

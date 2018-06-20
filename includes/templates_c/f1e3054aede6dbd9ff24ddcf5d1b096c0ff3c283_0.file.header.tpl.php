@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-06-07 13:42:31
+/* Smarty version 3.1.32, created on 2018-05-31 13:28:17
   from 'C:\MAMP\htdocs\ProgServ\coursphp\progcs\pokedex\includes\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b193647b53a36_27050941',
+  'unifunc' => 'content_5b0ff871cf0073_73638418',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1e3054aede6dbd9ff24ddcf5d1b096c0ff3c283' => 
     array (
       0 => 'C:\\MAMP\\htdocs\\ProgServ\\coursphp\\progcs\\pokedex\\includes\\templates\\header.tpl',
-      1 => 1528378946,
+      1 => 1527773293,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b193647b53a36_27050941 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b0ff871cf0073_73638418 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -28,15 +28,15 @@ function content_5b193647b53a36_27050941 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="Content-language" content="fr" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pok game</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="index.php">
-            <img src="./assets/img/logo.png" alt=""
-                 width="70" height="100%">
+            <img src="../../assets/img/logo.png" alt=""
+                 width="474" height="218">
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
             <span></span>
@@ -51,9 +51,9 @@ function content_5b193647b53a36_27050941 (Smarty_Internal_Template $_smarty_tpl)
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="field is-grouped">
-                    <?php if (!isset($_SESSION['pseudo'])) {?>
+                    <?php if (!isset($_SESSION['username'])) {?>
                         <p class="control">
-                            <a class="button is-danger is-primary" href="registration.php">
+                            <a class="button is-primary" href="registration.php">
                                 <span class="icon"><i class="fas fa-user-plus"></i> </span>
                                 <span>S'inscrire</span>
                             </a>
@@ -68,7 +68,7 @@ function content_5b193647b53a36_27050941 (Smarty_Internal_Template $_smarty_tpl)
                         <p class="control">
                             <a class="button" href="#">
                                 <span class="icon"><i class="fas fa-cog"></i></span>
-                                <span><?php echo $_SESSION['pseudo'];?>
+                                <span><?php echo $_SESSION['username'];?>
 </span>
                             </a>
                         </p>
