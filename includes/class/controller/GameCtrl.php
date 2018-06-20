@@ -9,22 +9,31 @@
 
 class GameCtrl extends Ctrl
 {
-    public  function displayPokedex()
+    public function displayPokedex()
     {
-
-
-
         //var_dump(Dresseurs::getAllDresseurs());
         //var_dump(FichePokemon::getAllFichePok());
 
-       // var_dump(Pokemon::getAllPokInf());
+        // var_dump(Pokemon::getAllPokInf());
 
-        var_dump(Pokemon::getPokCapFromDresseur());
-          //  $this::getPokCapFromDresseur("tabPok", $tabPok);
-      //  $this->getTPL()->getPokCapFromDresseur("tabPok", $pok );
+        // var_dump(Pokemon::getPokCapFromDresseur());
 
-       // $this->getTPL()->assign('pokemons',$data);
+
+        //  var_dump(Pokemon::findPokemon());
+        //  $this::getPokCapFromDresseur("tabPok", $tabPok);
+        //  $this->getTPL()->getPokCapFromDresseur("tabPok", $pok );
+        $rndPokemon = Pokemon::rndPokemon();
+        // $this->getTPL()->assign('pokemons',$data);
+        //$tabPok = Pokemon::findPokemon();
+        $this->getTPL()->assign('rndPok', $rndPokemon);
+        $this->getTPL()->assign("tabPok", null);
         $this->getTPL()->display('pokedex.tpl');
-
     }
+
+    public function catchPokemon($idPokemon)
+    {
+        $idDresseur = 0; //TODO : obtenir l id du dressuer par son pseudo
+        Pokemon::addToPokedex($idPokemon, $idDresseur);
+    }
+
 }

@@ -5,50 +5,76 @@
  * Date: 30.05.2018
  * Time: 17:13
  */
-//include "Ctrl.php";
-class LoginCtrl extends Ctrl {
-   public  function login () {
 
-       $this->getTPL()->display('login.tpl');
-       var_dump($_SESSION);
-   }
-    public function checkLogin($pseudo, $pswd) {
+//include "Ctrl.php";
+class LoginCtrl extends Ctrl
+{
+    public function login()
+    {
+
+        $this->getTPL()->display('login.tpl');
+       // var_dump($_SESSION);
+
+    }
+
+    public function checkLogin($pseudo, $pswd)
+    {
         $loginOk = true;
 
         if (empty($pseudo) || empty($pswd))
             $loginOk = false;
 
-        if (!(Dresseurs::isUserExist($pseudo) && password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo))))
+
+        if (!(Dresseurs::isUserExist($pseudo) )){
+          //  var_dump("pseudo existe" . $pswd.$pseudo);
             $loginOk = false;
 
-        if (!$loginOk)
-            $this->getTPL()->display('login.tpl');
+        }
+
+        if (!(password_verify($pswd, Dresseurs::getDresseursPasswordHash($pseudo)))){
+          //  var_dump("password" . $pswd.$pseudo);
+            $loginOk = false;
+
+        }
+
+
+        if (!$loginOk) $this->getTPL()->display('login.tpl');
+
         else {
             Session::set("pseudo", $pseudo);
             $_SESSION["Authenticated"] = true;
+            $_SESSION["pseudo"]=$pseudo;
             $this->getTPL()->assign("pseudo", $pseudo);
-            $this->getTPL()->display('loginOk.tpl');
+            $this->getTPL()->display('pokedex.tpl');
         }
-var_dump($_SESSION);
+        //var_dump($_SESSION);
 
     }
 
-    public function signup() {
+    public function logout()
+    {
+        Session::destroy();
+        $this->getTPL()->display('logout.tpl');
+    }
+
+    public function signup()
+    {
         $this->getTPL()->display('registration.tpl');
     }
 
-    public function checkAndSaveRegistration($user, $pswd) {
-        $db = new db();
+    public function checkAndSaveRegistration($pseudo, $pswd)
+    {
+        $db = new  db(unserialize(TBCONF));
         try {
             $db->pdo->beginTransaction();
             $q = $db->pdo->prepare("INSERT INTO dresseurs (pseudo, password) VALUES (:pseudo,:password)");
-            $q->bindParam(":pseudo", $user, PDO::PARAM_STR, 50);
+            $q->bindParam(":pseudo", $pseudo, PDO::PARAM_STR, 50);
             $q->bindParam(":password", password_hash($pswd, PASSWORD_DEFAULT), PDO::PARAM_STR, 255);
             $q->execute();
 
 
             $db->pdo->commit();
-            $this->checkLogin($user, $pswd);
+       $this->checkLogin($pseudo, $pswd);
         } catch (Exception $e) {
             $db->pdo->rollBack();
             $this->getTPL()->assign("error", $e->getMessage());

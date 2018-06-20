@@ -4,21 +4,43 @@
     <div class="hero-body">
         <div class="container">
             <article class="card is-rounded">
-                <form class="card-content" method="post">
+                <div class="card-content">
+                    <h1 class="title">
+                        Bienvenue {$smarty.session.pseudo} !
+                    </h1>
+                </div>
+            </article>
+            <article class="card is-rounded">
+                <form class="card-content">
                     <h1 class="title">
                         Pok Game
                     </h1>
                     <div class="field">
                         <p>
-                           pour commencer la recherche de pokémon appuyer sur le bouton recherche
+                            Pokemon: {$rndPok->nom}
                         </p>
+                        <p>
+                            Pokémon No: {$rndPok->noFichePokemon}
+                        </p>
+                        <p>
+                            Type: {$rndPok->nomType}
+                        </p>
+                        <img src="./assets/img/{$rndPok->noFichePokemon}.png" alt=""
+                             width="200" height="100%">
+                        <p>Niveau: {$rndPok->nivPokemon}</p>
+                        <p>Sexe: {$rndPok->sexe}</p>
                     </div>
+
 
                     <div class="field">
 
-                            <input type="submit" class="button is-danger is-primary is-medium is-fullwidth" value="Recherche">
+                        <a href="?IdPok={$rndPok->noPokemon}" class="button is-danger is-primary is-medium" value="Capturer">Capturer</a>
+
+                        <input type="submit" class="button is-warning is-primary is-medium" value="Fuire">
+
 
                     </div>
+
                 </form>
             </article>
             <article class="card is-rounded">
