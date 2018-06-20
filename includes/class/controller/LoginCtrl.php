@@ -44,8 +44,7 @@ class LoginCtrl extends Ctrl
             Session::set("pseudo", $pseudo);
             $_SESSION["Authenticated"] = true;
             $_SESSION["pseudo"]=$pseudo;
-            $this->getTPL()->assign("pseudo", $pseudo);
-            $this->getTPL()->display('pokedex.tpl');
+            header('Location: game.php');
         }
         //var_dump($_SESSION);
 

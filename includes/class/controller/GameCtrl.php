@@ -25,15 +25,19 @@ class GameCtrl extends Ctrl
         $rndPokemon = Pokemon::rndPokemon();
         // $this->getTPL()->assign('pokemons',$data);
         //$tabPok = Pokemon::findPokemon();
+        $idDresseur = Dresseurs::getDresseurId($_SESSION["pseudo"]);
+       $tabPokCap = Pokemon::getPokCapFromDresseur($idDresseur);
         $this->getTPL()->assign('rndPok', $rndPokemon);
-        $this->getTPL()->assign("tabPok", null);
+        $this->getTPL()->assign("tabPok", $tabPokCap);
         $this->getTPL()->display('pokedex.tpl');
     }
 
     public function catchPokemon($idPokemon)
     {
-        $idDresseur = 0; //TODO : obtenir l id du dressuer par son pseudo
-        Pokemon::addToPokedex($idPokemon, $idDresseur);
+        //TODO : obtenir l id du dressuer par son pseudo
+        $idDresseur = Dresseurs::getDresseurId($_SESSION["pseudo"]);
+        Pokemon::addToPokedex($idDresseur,$idPokemon);
+        header('Location: game.php');
     }
 
 }

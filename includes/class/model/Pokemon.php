@@ -44,17 +44,17 @@ class Pokemon
 
     // return new Pokemon();
     //}
-    public static function getPokCapFromDresseur()
+    public static function getPokCapFromDresseur($idDresseurs)
     {
         $db = new db(unserialize(TBCONF));
-        $SQL = "SELECT DISTINCT * FROM pokemon INNER JOIN fichepokemon on pokemon.noFichePok = fichepokemon.no 
-                inner join types_has_fichepokemon on fichepokemon.no = types_has_fichepokemon.noFichePokemon
-                inner join types on types.no = types_has_fichepokemon.noType
-                inner join capture on capture.nopokemon = pokemon.no 
-                inner join dresseurs on dresseurs.no = capture.noDresseurs
-                where dresseurs.no = 1  ";
+        $SQL = "SELECT fichepokemon.no,fichepokemon.nom,pokemon.nivPok,pokemon.sexe,fichepokemon.description, 
+                (select GROUP_CONCAT(types.nomType) from types,types_has_fichepokemon WHERE types.no = types_has_fichepokemon.noType 
+                AND types_has_fichepokemon.noFichePokemon=fichepokemon.no) as 'types' FROM pokemon 
+                INNER JOIN fichepokemon on pokemon.noFichePok = fichepokemon.no 
+                inner join capture on capture.nopokemon = pokemon.no where capture.noDresseurs = $idDresseurs  ";
         $param = array();
         $brutResults = $db->selectQuery($SQL, $param);
+
         $tabPok = array();
         for ($i = 0; $i < count($brutResults); $i++) {
             $tabPok[] = self::arrayToObject($brutResults[$i]);
@@ -104,11 +104,25 @@ class Pokemon
 
     }
 
+    public static function addToPokedex($noDresseurs, $noPokemon)
+    {
+
+        $db = new db(unserialize(TBCONF));
+        $SQL = "INSERT INTO capture (noDresseurs,noPokemon)
+            VALUES ('$noDresseurs', '$noPokemon');  ";
+        $db->insertQuery($SQL);
+    }
 
 // private static function arrayToObject($tabFichePok){
     private static function arrayToObject($tabPok)
     {
-        return new Pokemon($tabPok[0], $tabPok['nom'], $tabPok['description'], $tabPok['nomType'], $tabPok['sexe'],$tabPok['nivPok'], $tabPok['noFichePok']);
+        if(!isset($tabPok['noFichePok']))
+            $tabPok['noFichePok'] = -1;
+        if(!isset($tabPok['nomType']))
+            $tabPok['nomType'] = isset($tabPok['types']) ? $tabPok['types'] : '';
+
+
+        return new Pokemon($tabPok[0], $tabPok['nom'], $tabPok['description'], $tabPok['nomType'], $tabPok['sexe'], $tabPok['nivPok'], $tabPok['noFichePok']);
         //return new Dresseurs($tabFichePok['no'],$tabFichePok['nom'],$tabFichePok['description']);
     }
 

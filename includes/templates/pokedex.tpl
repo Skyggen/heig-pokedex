@@ -34,7 +34,8 @@
 
                     <div class="field">
 
-                        <a href="?IdPok={$rndPok->noPokemon}" class="button is-danger is-primary is-medium" value="Capturer">Capturer</a>
+                        <a href="?IdPok={$rndPok->noPokemon}" class="button is-danger is-primary is-medium"
+                           value="Capturer">Capturer</a>
 
                         <input type="submit" class="button is-warning is-primary is-medium" value="Fuire">
 
@@ -53,48 +54,28 @@
                         <tr>
                             <th>No</th>
                             <th>Nom</th>
-                            <th>Type 1</th>
-                            <th>Type 2</th>
+                            <th>Type</th>
                             <th>Niveau</th>
                             <th>Sexe</th>
                             <th>Description</th>
 
                         </tr>
-                        <tr>
-                            <ul>
 
-                                {foreach from=$pok->getPokCapFromDresseur() item=noPok}
-                                    <span class="tag is-rounded is-info">{$noPok}</span>
-                                {/foreach}
-                            </ul>
-                                                        <td>Maria Anders</td>
-                            <td>Germany</td>
-                        </tr>
-                        <tr>
-                            <td>Centro comercial Moctezuma</td>
-                            <td>Francisco Chang</td>
-                            <td>Mexico</td>
-                        </tr>
-                        <tr>
-                            <td>Ernst Handel</td>
-                            <td>Roland Mendel</td>
-                            <td>Austria</td>
-                        </tr>
-                        <tr>
-                            <td>Island Trading</td>
-                            <td>Helen Bennett</td>
-                            <td>UK</td>
-                        </tr>
-                        <tr>
-                            <td>Laughing Bacchus Winecellars</td>
-                            <td>Yoshi Tannamuri</td>
-                            <td>Canada</td>
-                        </tr>
-                        <tr>
-                            <td>Magazzini Alimentari Riuniti</td>
-                            <td>Giovanni Rovelli</td>
-                            <td>Italy</td>
-                        </tr>
+
+                        {foreach from=$tabPok item=pok}
+                            <tr>
+                                <td>{$pok->noPokemon}</td>
+                                <td>{$pok->nom}</td>
+                                <td>{$pok->nomType}</td>
+                                <td>{$pok->nivPokemon}</td>
+                                <td>{$pok->sexe}</td>
+                                <td>{$pok->description}</td>
+
+
+                            </tr>
+                        {/foreach}
+
+
                     </table>
 
                 </form>

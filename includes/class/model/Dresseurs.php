@@ -57,7 +57,7 @@ class Dresseurs
         $db = new  db(unserialize(TBCONF));;
         $result = $db->selectQuery("select * from dresseurs where pseudo=?",array($pseudo));
         if(!empty($result)){
-            return (int)$result[0]->id;
+            return $result[0][0];
 
         }else{return "";}
     }
