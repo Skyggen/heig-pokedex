@@ -15,3 +15,5 @@ Le projet consiste à une page web où les utilisateurs vont avoir la possibilit
 ### 2.2 Option d’ajout 1 
 Il existera des groupes de pokémon avec un différent taux de rencontre.
 
+## 3. Installation
+récupérer tout le projet. Ensuite il faut mettre en place la base de donnée en important le fichier adrien.ciampone.sql et aussi
