@@ -16,4 +16,13 @@ Le projet consiste à une page web où les utilisateurs vont avoir la possibilit
 Il existera des groupes de pokémon avec un différent taux de rencontre.
 
 ## 3. Installation
-récupérer tout le projet. Ensuite il faut mettre en place la base de donnée en important le fichier adrien.ciampone.sql et aussi
+
+Attention, cette application nécessite l'installation de Smarty sur le serveur. Si celui-ci n'est pas présent il est accessible ici: https://www.smarty.net/
+- Télécharger la totalité du projet
+- Décompresser l'archive
+- Placer le contenu du dossier à l'endroit voulu sur le serveur (racine ou pas)
+- Importez le fichier adrien.ciampone.sql dans votre base de données (celui contient la structure de la base de données ainsi que quelque pokémons qui on été implémenté et aussi des utilisateurs
+- Ouvrir le fichier config.php et le modifier en fonction de votre configuration
+Username = Utilisateur de la BDD
+Password = Mot de passe de la BDD
+Database = Nom de la BDD
