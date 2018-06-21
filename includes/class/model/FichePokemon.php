@@ -8,8 +8,15 @@
 
 class FichePokemon
 {
+
     private $no, $nom, $description;
 
+    /**
+     * FichePokemon constructor.
+     * @param $no_fichePokemon
+     * @param $nomPok
+     * @param $descriptionPok
+     */
     public function __construct($no_fichePokemon, $nomPok, $descriptionPok)
     {
         $this->no = $no_fichePokemon;
@@ -17,6 +24,9 @@ class FichePokemon
         $this->description = $descriptionPok;
     }
 
+    /**
+     * @return array
+     */
     public static function getAllFichePok()
     {
         $db = new db(unserialize(TBCONF));
@@ -32,6 +42,9 @@ class FichePokemon
 
     }
 
+    /**
+     * @return mixed
+     */
     public static function countFichePokemon()
     {
         $db = new db(unserialize(TBCONF));
@@ -45,6 +58,10 @@ class FichePokemon
     }
 
 
+    /**
+     * @param $tabFichePok
+     * @return FichePokemon
+     */
     private static function arrayToObject($tabFichePok)
     {
 

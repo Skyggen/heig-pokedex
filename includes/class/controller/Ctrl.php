@@ -9,8 +9,14 @@
 class Ctrl
 
 {
+    /**
+     * @var Smarty
+     */
     private $tpl;
 
+    /**
+     * Ctrl constructor.
+     */
     public function __construct()
     {
 
@@ -19,6 +25,9 @@ class Ctrl
         $this->tpl->compile_dir = TEMPLATECOMPILEDPATH;
     }
 
+    /**
+     * @return Smarty
+     */
     public function getTPL()
     {
         return $this->tpl;

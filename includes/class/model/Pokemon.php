@@ -10,6 +10,16 @@ class Pokemon
 {
     public $noPokemon, $nom, $description, $nivPokemon, $sexe, $noFichePokemon, $nomType;
 
+    /**
+     * Pokemon constructor.
+     * @param $noPokemon
+     * @param $nom
+     * @param $description
+     * @param $nomType
+     * @param $sexe
+     * @param $nivPokemon
+     * @param $noFichePokemon
+     */
     public function __construct($noPokemon, $nom, $description, $nomType, $sexe, $nivPokemon, $noFichePokemon)
     {
         $this->noPokemon = $noPokemon;
@@ -22,6 +32,9 @@ class Pokemon
 
     }
 
+    /**
+     * @return array
+     */
     public static function getAllPokInf()
     {
         $db = new db(unserialize(TBCONF));
@@ -37,6 +50,10 @@ class Pokemon
 
     }
 
+    /**
+     * @param $idDresseurs
+     * @return array
+     */
     public static function getPokCapFromDresseur($idDresseurs)
     {
         $db = new db(unserialize(TBCONF));
@@ -57,6 +74,9 @@ class Pokemon
 
     }
 
+    /**
+     * @return Pokemon
+     */
     public static function rndPokemon()
     {
         $rndId = rand(1, FichePokemon::countFichePokemon());
@@ -68,6 +88,10 @@ class Pokemon
     }
 
 
+    /**
+     * @param $idPok
+     * @return Pokemon
+     */
     public static function findPokemon($idPok)
     {
         $db = new db(unserialize(TBCONF));
@@ -82,6 +106,12 @@ class Pokemon
 
     }
 
+    /**
+     * @param $noFichePok
+     * @param $nivPok
+     * @param $sexe
+     * @return null|string
+     */
     public static function createPokemon($noFichePok, $nivPok, $sexe)
     {
         // TODO : d autre verification doivent etre faite
@@ -97,6 +127,10 @@ class Pokemon
 
     }
 
+    /**
+     * @param $noDresseurs
+     * @param $noPokemon
+     */
     public static function addToPokedex($noDresseurs, $noPokemon)
     {
 
@@ -106,6 +140,10 @@ class Pokemon
         $db->insertQuery($SQL);
     }
 
+    /**
+     * @param $tabPok
+     * @return Pokemon
+     */
     private static function arrayToObject($tabPok)
     {
         if (!isset($tabPok['noFichePok']))

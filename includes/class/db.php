@@ -8,11 +8,27 @@
 
 class db
 {
+    /**
+     * @var
+     */
     private $username;
+    /**
+     * @var
+     */
     private $password;
+    /**
+     * @var
+     */
     private $database;
+    /**
+     * @var PDO
+     */
     public $pdo;
 
+    /**
+     * db constructor.
+     * @param $tbConf
+     */
     public function __construct($tbConf)
     {
         $this->username = $tbConf['username'];
@@ -26,6 +42,11 @@ class db
         }
     }
 
+    /**
+     * @param $SQL
+     * @param array $param
+     * @return array|null
+     */
     public function selectQuery($SQL, array $param)
     {
         $stmt = $this->pdo->prepare($SQL);
@@ -40,6 +61,10 @@ class db
 
     }
 
+    /**
+     * @param $SQL
+     * @return string
+     */
     public function insertQuery($SQL)
     {
         try {

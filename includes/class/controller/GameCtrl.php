@@ -9,6 +9,9 @@
 
 class GameCtrl extends Ctrl
 {
+    /**
+     * affichage de la page du jeu et du pokedex
+     */
     public function displayPokedex()
     {
         $rndPokemon = Pokemon::rndPokemon();
@@ -19,6 +22,9 @@ class GameCtrl extends Ctrl
         $this->getTPL()->display('pokedex.tpl');
     }
 
+    /**
+     * @param $idPokemon
+     */
     public function catchPokemon($idPokemon)
     {
         $idDresseur = Dresseurs::getDresseurId($_SESSION["pseudo"]);

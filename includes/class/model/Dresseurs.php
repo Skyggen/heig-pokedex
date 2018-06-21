@@ -11,6 +11,12 @@ class Dresseurs
 {
     private $no, $pseudo, $password;
 
+    /**
+     * Dresseurs constructor.
+     * @param $no
+     * @param $pseudo
+     * @param $password
+     */
     public function __construct($no, $pseudo, $password)
     {
         $this->no = $no;
@@ -18,6 +24,9 @@ class Dresseurs
         $this->password = $password;
     }
 
+    /**
+     * @return array
+     */
     public static function getAllDresseurs()
     {
         $db = new db(unserialize(TBCONF));
@@ -33,18 +42,30 @@ class Dresseurs
 
     }
 
+    /**
+     * @param $tbDresseur
+     * @return Dresseurs
+     */
     private static function arrayToObject($tbDresseur)
     {
 
         return new Dresseurs($tbDresseur['no'], $tbDresseur['pseudo'], $tbDresseur['password']);
     }
 
+    /**
+     * @param $pseudo
+     * @return bool
+     */
     public static function isUserExist($pseudo)
     {
         $db = new  db(unserialize(TBCONF));
         return !empty($db->selectQuery("select * from dresseurs where pseudo=?", array($pseudo)));
     }
 
+    /**
+     * @param $pseudo
+     * @return string
+     */
     public static function getDresseursPasswordHash($pseudo)
     {
         $db = new  db(unserialize(TBCONF));;
@@ -59,6 +80,10 @@ class Dresseurs
         }
     }
 
+    /**
+     * @param $pseudo
+     * @return string
+     */
     public static function getDresseurId($pseudo)
     {
         $db = new  db(unserialize(TBCONF));;

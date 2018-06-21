@@ -8,12 +8,19 @@
  */
 class LoginCtrl extends Ctrl
 {
+    /**
+     * affichage de la page du login
+     */
     public function login()
     {
         $this->getTPL()->display('login.tpl');
         // var_dump($_SESSION);
     }
 
+    /**
+     * @param $pseudo
+     * @param $pswd
+     */
     public function checkLogin($pseudo, $pswd)
     {
         $loginOk = true;
@@ -45,17 +52,27 @@ class LoginCtrl extends Ctrl
 
     }
 
+    /**
+     * affichage de la page de confirmation du logout
+     */
     public function logout()
     {
         Session::destroy();
         $this->getTPL()->display('logout.tpl');
     }
 
+    /**
+     * affichage de la page d'inscription
+     */
     public function signup()
     {
         $this->getTPL()->display('registration.tpl');
     }
 
+    /**
+     * @param $pseudo
+     * @param $pswd
+     */
     public function checkAndSaveRegistration($pseudo, $pswd)
     {
         $db = new  db(unserialize(TBCONF));
