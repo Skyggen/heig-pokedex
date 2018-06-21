@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+                 {include file="header.tpl"}
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <section class="hero is-alt is-fullheight">
     <div class="hero-body">
@@ -33,7 +33,7 @@
 
 
                     </div>
-                    <footer class="card-footer buttons has-addons is-centered">
+                    <form class="card-footer buttons has-addons is-centered">
 
                         <a href="?IdPok={$rndPok->noPokemon}" class="button is-danger is-primary is-medium"
                            value="Capturer">Capturer</a>
@@ -41,7 +41,7 @@
                         <input type="submit" class="button is-warning is-primary is-medium" value="Fuire" size="100%">
 
 
-                    </footer>
+                    </form>
                 </div>
             </div>
             <div class="container columns">

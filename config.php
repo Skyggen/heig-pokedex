@@ -1,9 +1,9 @@
 <?php
 
 $dbConfig = [
-  'username' => 'root',
-  'password' => 'root',
-  'database' => 'pokedex'
+  'username' => 'adrien.ciampone',
+  'password' => 'adrien.ciampone',
+  'database' => 'adrien.ciampone'
 ];
 
 define ("TBCONF",serialize($dbConfig));
@@ -15,4 +15,4 @@ define('TEMPLATESPATH', INCLUDESPATH . 'templates' . DIRECTORY_SEPARATOR);
 define('TEMPLATECOMPILEDPATH', INCLUDESPATH . 'templates_c' . DIRECTORY_SEPARATOR);
 define('CONTROLLERPATH', realpath(CLASSPATH . 'controller') . DIRECTORY_SEPARATOR);
 define('MODELPATH', realpath(CLASSPATH . 'model') . DIRECTORY_SEPARATOR);
-require(CONFIGPATH . "boot.php");
+require(CONFIGPATH."boot.php");
