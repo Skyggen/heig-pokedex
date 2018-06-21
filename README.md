@@ -26,3 +26,4 @@ Attention, cette application nécessite l'installation de Smarty sur le serveur.
 Username = Utilisateur de la BDD
 Password = Mot de passe de la BDD
 Database = Nom de la BDD
+
